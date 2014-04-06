@@ -1,0 +1,12 @@
+%h1 Post: #{@post.title}
+%p= @post.description
+%hr
+%h2 Comments
+= form_for [@post, @comment] do |f|
+  = f.text_area :body
+  %br
+  = f.submit "Comment"
+
+- @post.comments.each do |comment|
+  %p= comment.body
+  %hr
